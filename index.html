@@ -14,21 +14,15 @@
     <!-- add products -->
     <div class="add-wrapper" ng-controller="addController as addCtrl">
         <h2>{{ addCtrl.title }}</h2>
-        <form action="#" name="userAddForm" ng-submit="save($event)" novalidate><!-- using novalidate, and ng-submit -->
+        <form action="#" name="productAddForm" ng-submit="save($event)" novalidate>
             <fieldset>
-                <label for="product">Product:</label>
-                <select>
-                    <option value="">Select a Product:</option>
+                <label for="product">Select a Product:</label>
+                <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" >
                 </select>
-
-                <!-- <label for="user-lastname">Lastname:</label>
-                <input type="text" name="lastname" ng-model="user.LastName">
-
-                <label for="user-gender">Gender:</label>
-                <input type="text" name="user-gender" ng-model="user.Gender">
-
-                <button type="submit" class="button large float-right" ng-disabled="userAddForm.$invalid">Submit</button>
-                <a href="#/users-list" class="float-left">Back</a> -->
+                <span>Price: {{ addCtrl.selected.price }}</span>
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" id="quantity" min="1">
+                <button type="submit">Add</button>
             </fieldset>
         </form>
     </div>
