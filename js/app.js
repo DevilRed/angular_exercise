@@ -1,1 +1,1 @@
-var app = angular.module('shoppingCart', []);
+var app = angular.module('shoppingCart', ['ngStorage']);

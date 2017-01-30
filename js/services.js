@@ -1,5 +1,5 @@
 angular.module("shoppingCart")
-	.service('productService', [function (){
+	.service('productService', [function ($localStorage){
 		var products = [
 			{title: 'TV', stock: 10, price: 500},
 			{title: 'Radio', stock: 10, price: 80},
@@ -17,8 +17,17 @@ angular.module("shoppingCart")
 			return soldProducts;
 		};
 		this.addProduct = function (product){
-			soldProducts.push(product);
-			// console.log(soldProducts);
+			// console.log(product.title);
+			var flag = false;
+			angular.forEach(soldProducts, function (val, key){
+				// console.log(val.title);
+				if(val.title === product.title) {
+					flag = true;
+					val.quantity = product.quantity;
+				}
+			});
+			if(flag === false)
+				soldProducts.push(product);
 		};
 	}])
 	;
