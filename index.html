@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>BUY-IT-NOW</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/index.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -19,22 +20,22 @@
                 <select>
                     <option value="">Select a Product:</option>
                 </select>
-        
-                <label for="user-lastname">Lastname:</label>
+
+                <!-- <label for="user-lastname">Lastname:</label>
                 <input type="text" name="lastname" ng-model="user.LastName">
-        
+
                 <label for="user-gender">Gender:</label>
                 <input type="text" name="user-gender" ng-model="user.Gender">
-        
+
                 <button type="submit" class="button large float-right" ng-disabled="userAddForm.$invalid">Submit</button>
-                <a href="#/users-list" class="float-left">Back</a>
+                <a href="#/users-list" class="float-left">Back</a> -->
             </fieldset>
         </form>
     </div>
     <!-- your shopping cart list -->
     <h2>Your Shopping Cart</h2>
-    <div ng-controller='CartController' class='cart' >
-        <div ng-repeat='item in items'>
+    <div ng-controller='CartController as cartList' class='cart' >
+        <div ng-repeat='item in cartList.items'>
             <span>{{item.title}}</span>
             <input ng-model='item.quantity'>
             <span>{{item.price | currency}}</span>
