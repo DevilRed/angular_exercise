@@ -17,12 +17,12 @@
         <form action="#" name="productAddForm" ng-submit="addCtrl.save($event)" novalidate>
             <fieldset>
                 <label for="product">Select a Product:</label>
-                <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" >
+                <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" required="">
                 </select>
                 <span>Price: {{ addCtrl.selected.price }}</span>
                 <label for="quantity">Quantity:</label>
-                <input type="number" name="quantity" id="quantity" min="1">
-                <button type="submit">Add</button>
+                <input type="number" name="quantity" id="quantity" min="1" ng-model="addCtrl.quantity" required="">
+                <button type="submit" ng-disabled="productAddForm.$invalid">Add</button>
             </fieldset>
         </form>
     </div>
