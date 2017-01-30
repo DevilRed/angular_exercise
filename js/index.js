@@ -5,8 +5,8 @@ angular.module("shoppingCart")
     this.items = productService.getProducts();
 
 
-    $scope.remove = function(index) {
-        $scope.items.splice(index, 1);
+    this.remove = function(index) {
+        this.items.splice(index, 1);
     }
 }])
 

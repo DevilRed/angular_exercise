@@ -34,7 +34,7 @@
             <input ng-model='item.quantity'>
             <span>{{item.price | currency}}</span>
             <span>{{item.price * item.quantity | currency}}</span>
-            <button ng-click="remove($index)">Remove</button>
+            <button ng-click="cartList.remove($index)">Remove</button>
         </div>
     </div>
 </body>
