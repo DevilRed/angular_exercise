@@ -48,7 +48,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in cartList.items">
+                <tr ng-repeat="item in cartList.items track by $index">
                     <td>{{ item.title }}</td>
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.price }}</td>
