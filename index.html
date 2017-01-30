@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>BUY-IT-NOW</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/services.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app='shoppingCart'>
+    <!-- add products -->
+    <div class="add-wrapper" ng-controller="addController as addCtrl">
+        <h2>{{ addCtrl.title }}</h2>
+        <form action="#" name="userAddForm" ng-submit="save($event)" novalidate><!-- using novalidate, and ng-submit -->
+            <fieldset>
+                <label for="product">Product:</label>
+                <select>
+                    <option value="">Select a Product:</option>
+                </select>
+        
+                <label for="user-lastname">Lastname:</label>
+                <input type="text" name="lastname" ng-model="user.LastName">
+        
+                <label for="user-gender">Gender:</label>
+                <input type="text" name="user-gender" ng-model="user.Gender">
+        
+                <button type="submit" class="button large float-right" ng-disabled="userAddForm.$invalid">Submit</button>
+                <a href="#/users-list" class="float-left">Back</a>
+            </fieldset>
+        </form>
+    </div>
+    <!-- your shopping cart list -->
+    <h2>Your Shopping Cart</h2>
+    <div ng-controller='CartController' class='cart' >
+        <div ng-repeat='item in items'>
+            <span>{{item.title}}</span>
+            <input ng-model='item.quantity'>
+            <span>{{item.price | currency}}</span>
+            <span>{{item.price * item.quantity | currency}}</span>
+            <button ng-click="remove($index)">Remove</button>
+        </div>
+    </div>
+</body>
+</html>
