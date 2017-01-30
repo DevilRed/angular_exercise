@@ -14,7 +14,7 @@
     <!-- add products -->
     <div class="add-wrapper" ng-controller="addController as addCtrl">
         <h2>{{ addCtrl.title }}</h2>
-        <form action="#" name="productAddForm" ng-submit="save($event)" novalidate>
+        <form action="#" name="productAddForm" ng-submit="addCtrl.save($event)" novalidate>
             <fieldset>
                 <label for="product">Select a Product:</label>
                 <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" >
@@ -29,13 +29,33 @@
     <!-- your shopping cart list -->
     <h2>Your Shopping Cart</h2>
     <div ng-controller='CartController as cartList' class='cart' >
-        <div ng-repeat='item in cartList.items'>
+        <!-- <div ng-repeat='item in cartList.items'>
             <span>{{item.title}}</span>
             <input ng-model='item.quantity'>
             <span>{{item.price | currency}}</span>
             <span>{{item.price * item.quantity | currency}}</span>
             <button ng-click="cartList.remove($index)">Remove</button>
-        </div>
+        </div> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in cartList.items">
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.price * item.quantity | currency }}</td>
+                    <td><button ng-click="cartList.remove($index)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
