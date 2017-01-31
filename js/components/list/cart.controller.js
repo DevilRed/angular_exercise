@@ -1,7 +1,7 @@
 'use strict';
 angular.module("shoppingCart")
 
-.controller("CartController", ['productService', 'soldProductsService', '$scope', '$window', function(productService, soldProductsService, $scope, $window){
+.controller("CartController", ['productService', 'soldProductsService', 'confirmOrderService', '$scope', '$window', function(productService, soldProductsService,confirmOrderService, $scope, $window){
 
     this.items = soldProductsService.getSoldProducts();
 
@@ -20,12 +20,12 @@ angular.module("shoppingCart")
         	purchasedItems.splice(toDelete,1);
         	localStorage.setItem('sold_products', JSON.stringify(purchasedItems));
         }
-        console.log(this.items.length);
+        // $window.location.reload();
     };
     this.confirmOrder = function($event, items){
       $event.preventDefault();
       // console.log(items);
-      productService.confirmOrder(items);
+      confirmOrderService.confirmOrder(items);
       $window.location.reload();
     };
 }]);

@@ -1,28 +1,5 @@
 angular.module("shoppingCart")
 	.service('productService', ['products', 'soldProducts', 'order', function (products, soldProducts, order){
-		/*var products = [
-			{title: 'TV', stock: 10, price: 500},
-			{title: 'Radio', stock: 10, price: 80},
-			{title: 'Microwave', stock: 10, price: 150},
-			{title: 'ChromeCast', stock: 10, price: 70},
-		];*/
-		/*var soldProducts = [
-				{title: 'TV', quantity: 1, price: 500},
-				{title: 'Radio', quantity: 1, price: 80}
-			];*/
-		/*var soldProducts = (localStorage.getItem('sold_products')!==null) ? JSON.parse(localStorage.getItem('sold_products')) : [
-				{title: 'TV', quantity: 1, price: 500},
-				{title: 'Radio', quantity: 1, price: 80}
-			];*/
-		// var order = {};
-		/*this.getOfferedProducts = function (){
-			return products;
-		};*/
-		/*this.getSoldProducts = function (){
-			// console.log(soldProducts);
-			soldProducts = JSON.parse(localStorage.getItem('sold_products'))
-			return soldProducts;
-		};*/
 		this.addProduct = function (product){
 			// console.log(product.title);
 			var flag = false;
@@ -54,20 +31,6 @@ angular.module("shoppingCart")
 			order.sold_products = soldProducts;
 			console.log(order);
 			localStorage.setItem('current_order', JSON.stringify(order))
-		};
-		this.confirmOrder = function(items){
-			var oldItems = JSON.parse(localStorage.getItem('confirmed_orders')) || [];
-			console.log(oldItems);
-			order = JSON.parse(localStorage.getItem('current_order'));
-			order.date = getCurrentDate();
-			console.log(order);
-			oldItems.push(order);
-			console.log(oldItems);
-
-			// localStorage.removeItem('confirmed_orders');
-			localStorage.setItem('confirmed_orders', JSON.stringify(oldItems));
-			localStorage.removeItem('sold_products');
-			soldProducts = [];
 		};
 
 		function getCurrentDate (){
