@@ -1,5 +1,5 @@
 angular.module("shoppingCart")
-	.service('productService', [function ($localStorage){
+	.service('productService', ['$localStorage', function ($localStorage){
 		var products = [
 			{title: 'TV', stock: 10, price: 500},
 			{title: 'Radio', stock: 10, price: 80},
@@ -14,6 +14,7 @@ angular.module("shoppingCart")
 				{title: 'TV', quantity: 1, price: 500},
 				{title: 'Radio', quantity: 1, price: 80}
 			];
+		var order = {};
 		this.getOfferedProducts = function (){
 			return products;
 		};
@@ -26,28 +27,44 @@ angular.module("shoppingCart")
 			// console.log(product.title);
 			var flag = false;
 			var toEdit;
-			var soldProducts = fetch();
+			order.date = Date.now();
+			order.total = 0;
 			angular.forEach(soldProducts, function (val, key){
-				console.log(val.title);
 				if(val.title === product.title) {
 					flag = true;
 					toEdit = key;
 				}
 			});
 			if(flag === false ){
-				soldProducts.push(product);
-				console.log(soldProducts);
+				if(soldProducts === null){
+					soldProducts = [];
+					soldProducts.push(product);
+				} else{
+					soldProducts.push(product);
+				}
 				flag = true;
 				localStorage.setItem('sold_products', JSON.stringify(soldProducts));
 			} else{
-				console.log(toEdit);
 				soldProducts[toEdit].quantity = product.quantity;
 				var toEdit;
 				product = {};
 			}
+			// console.log(soldProducts);
+			angular.forEach(soldProducts, function(val, key){
+				order.total += val.price;
+			});
+			order.sold_products = soldProducts;
+			console.log(order);
 		};
-		function fetch(){
-			return soldProducts;
+		this.confirmOrder = function(items){
+			var oldItems = JSON.parse(localStorage.getItem('confirmed_orders')) || [];
+			console.log(order);
+			// oldItems.push(order);
+
+			// localStorage.removeItem('confirmed_orders');
+			localStorage.setItem('confirmed_orders', JSON.stringify(oldItems));
+			localStorage.removeItem('sold_products');
+			soldProducts = [];
 		};
 	}])
 	;

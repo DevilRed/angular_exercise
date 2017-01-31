@@ -1,7 +1,7 @@
 'use strict';
 angular.module("shoppingCart")
 
-.controller("CartController", ['productService', '$scope', function(productService, $scope){
+.controller("CartController", ['productService', '$scope', '$window', function(productService, $scope, $window){
 
     this.items = productService.getSoldProducts();
 
@@ -21,9 +21,14 @@ angular.module("shoppingCart")
         	localStorage.setItem('sold_products', JSON.stringify(purchasedItems));
         }
     };
+    this.confirmOrder = function($event, items){
+      $event.preventDefault();
+      // console.log(items);
+      productService.confirmOrder(items);
+    };
 }])
 
-.controller('addController', ['$localStorage', 'productService', function ($localStorage, productService){
+.controller('addController', ['$localStorage', 'productService', '$window', function ($localStorage, productService, $window){
 	this.selected = {};
 	this.title = 'Add Products form';
 	this.offeredProducts = productService.getOfferedProducts();
@@ -39,5 +44,6 @@ angular.module("shoppingCart")
   	// cleaning data
   	this.quantity = 0;
   	this.selected = {};
+      $window.location.reload();
   };
 }]);

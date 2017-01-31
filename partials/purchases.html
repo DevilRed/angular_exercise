@@ -1,0 +1,6 @@
+
+<h2>Your Purchases</h2>
+<p>{{ purchasesCtrl.orders }}</p>
+<div class="purchased-order" ng-repeat="order in purchasesCtrl.orders  track by $index">
+	<p>{{ order }}</p>
+</div>
