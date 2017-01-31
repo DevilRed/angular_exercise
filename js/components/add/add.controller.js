@@ -7,11 +7,11 @@ angular.module("shoppingCart")
 	this.offeredProducts = offeredProductsService.getOfferedProducts();
 	this.product = {};
 	this.quantity = 0;
+  this.initialValue = this.offeredProducts[0].title;
+  this.selected = this.offeredProducts[0];
 
 	this.save = function ($event){
   	$event.preventDefault();
-    console.log(this.selected.title);
-    return;
   	this.product.title = this.selected.title;
   	this.product.quantity = this.quantity;
   	this.product.price = this.quantity * this.selected.price;

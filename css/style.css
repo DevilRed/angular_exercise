@@ -38,3 +38,9 @@ button{ margin-left:10px;}
 input.ng-invalid.ng-dirty{
 	border: 2px solid red;
 }
+.save-wrapper{
+	text-align: center;
+}
+.save-wrapper button{
+	min-width: 100px;
+}

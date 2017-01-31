@@ -25,12 +25,14 @@
         <form action="#" name="productAddForm" ng-submit="productAddForm.$valid && addCtrl.save($event)" novalidate>
             <fieldset>
                 <label for="product">Select a Product:</label>
-                <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" required="">
+                <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" required>
                 </select>
                 <span>Price: {{ addCtrl.selected.price }}</span>
                 <label for="quantity">Quantity:</label>
                 <input type="number" name="quantity" id="quantity" min="1" ng-model="addCtrl.quantity" required="">
-                <button type="submit" ng-disabled="productAddForm.$invalid" class="button">Add</button>
+                <div class="large-4 large-centered save-wrapper">
+                    <button type="submit" ng-disabled="productAddForm.$invalid" class="button">Add</button>
+                </div>
             </fieldset>
         </form>
     </div>
@@ -58,7 +60,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="confirm"><button ng-click="cartList.confirmOrder($event, cartList.items)">Confirm</button></div>
+        <div class="confirm"><button ng-click="cartList.confirmOrder($event, cartList.items)" class="button">Confirm</button></div>
     </div><!-- .cart -->
     <p ng-hide="{{ cartList.items.length }}">There are no items in your shopping cart</p>
     </div><!-- .shopping-wrapper -->
