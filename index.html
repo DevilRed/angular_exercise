@@ -53,7 +53,7 @@
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.price }}</td>
                     <td>{{ item.price * item.quantity | currency }}</td>
-                    <td><button ng-click="cartList.remove($index)">Remove</button></td>
+                    <td><button ng-click="cartList.remove($index, item)">Remove</button></td>
                 </tr>
             </tbody>
         </table>

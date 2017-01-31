@@ -10,7 +10,6 @@ angular.module("shoppingCart")
 				{title: 'TV', quantity: 1, price: 500},
 				{title: 'Radio', quantity: 1, price: 80}
 			];
-			// $scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [ {text: 'Learn AngularJS', done: false}, {text: 'Build an Angular app', done: false} ];
 		var soldProducts = (localStorage.getItem('sold_products')!==null) ? JSON.parse(localStorage.getItem('sold_products')) : [
 				{title: 'TV', quantity: 1, price: 500},
 				{title: 'Radio', quantity: 1, price: 80}
