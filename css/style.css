@@ -21,7 +21,7 @@ button{ margin-left:10px;}
 	display: inline-block;
 }
 .purchased-order table{
-	display: inline-block;
+	/*display: inline-block;*/
 	border: 1px solid black;
 }
 .purchased-order table, .purchased-order th, .purchased-order td {
@@ -34,4 +34,7 @@ button{ margin-left:10px;}
 .cart{
 	border: 2px solid #ccc;
 	float: none;
+}
+input.ng-invalid.ng-dirty{
+	border: 2px solid red;
 }

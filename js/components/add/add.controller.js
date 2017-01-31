@@ -3,13 +3,15 @@ angular.module("shoppingCart")
 
 .controller('addController', ['$localStorage', 'productService', 'offeredProductsService', '$window', function ($localStorage, productService, offeredProductsService, $window){
 	this.selected = {};
-	this.title = 'Add Products form';
+	this.title = 'ADD PRODUCTS';
 	this.offeredProducts = offeredProductsService.getOfferedProducts();
 	this.product = {};
 	this.quantity = 0;
 
 	this.save = function ($event){
   	$event.preventDefault();
+    console.log(this.selected.title);
+    return;
   	this.product.title = this.selected.title;
   	this.product.quantity = this.quantity;
   	this.product.price = this.quantity * this.selected.price;

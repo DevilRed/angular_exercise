@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/services.js"></script>
+    <script src="js/components/services/services.js"></script>
     <script src="js/components/services/offeredProduct.service.js"></script>
     <script src="js/components/services/soldProducts.service.js"></script>
     <script src="js/components/services/confirmOrder.service.js"></script>
@@ -14,14 +14,15 @@
     <script src="js/index.js"></script>
     <script src="js/components/list/cart.controller.js"></script>
     <script src="js/components/add/add.controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body ng-app='shoppingCart'>
     <!-- add products -->
-    <div class="add-wrapper" ng-controller="addController as addCtrl">
+    <div class="add-wrapper row" ng-controller="addController as addCtrl">
         <h2>{{ addCtrl.title }}</h2>
-        <form action="#" name="productAddForm" ng-submit="addCtrl.save($event)" novalidate>
+        <form action="#" name="productAddForm" ng-submit="productAddForm.$valid && addCtrl.save($event)" novalidate>
             <fieldset>
                 <label for="product">Select a Product:</label>
                 <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" required="">
@@ -29,13 +30,13 @@
                 <span>Price: {{ addCtrl.selected.price }}</span>
                 <label for="quantity">Quantity:</label>
                 <input type="number" name="quantity" id="quantity" min="1" ng-model="addCtrl.quantity" required="">
-                <button type="submit" ng-disabled="productAddForm.$invalid">Add</button>
+                <button type="submit" ng-disabled="productAddForm.$invalid" class="button">Add</button>
             </fieldset>
         </form>
     </div>
     <!-- your shopping cart list -->
-    <div class="shopping-wrapper">
-    <h2>Your Shopping Cart</h2>
+    <div class="shopping-wrapper row">
+    <h2>YOUR SHOPPING CART</h2>
     <div ng-controller='CartController as cartList' class='cart' ng-show="cartList.items.length">
         <table>
             <thead>
@@ -53,7 +54,7 @@
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.price }}</td>
                     <td>{{ item.price * item.quantity | currency }}</td>
-                    <td><button ng-click="cartList.remove($index, item)">Remove</button></td>
+                    <td><button ng-click="cartList.remove($index, item)" class="button alert">Remove</button></td>
                 </tr>
             </tbody>
         </table>
@@ -61,7 +62,7 @@
     </div><!-- .cart -->
     <p ng-hide="{{ cartList.items.length }}">There are no items in your shopping cart</p>
     </div><!-- .shopping-wrapper -->
-    <div class="your-purchases">
+    <div class="your-purchases row">
         <your-purchases></your-purchases>
     </div>
 </body>
