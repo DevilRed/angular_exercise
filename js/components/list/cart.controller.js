@@ -4,6 +4,12 @@ angular.module("shoppingCart")
 .controller("CartController", ['productService', 'soldProductsService', 'confirmOrderService', '$scope', '$window', function(productService, soldProductsService,confirmOrderService, $scope, $window){
 
     this.items = soldProductsService.getSoldProducts();
+    function getValue(){
+        return soldProductsService.getSoldProducts();
+    };
+    $scope.$watch(getValue, function (newValue){
+        console.log(newValue);
+    });
 
     this.remove = function(index, item) {
         this.items.splice(index, 1);
