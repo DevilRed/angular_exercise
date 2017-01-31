@@ -1,9 +1,9 @@
 'use strict';
 angular.module("shoppingCart")
 
-.controller("CartController", ['productService', '$scope', '$window', function(productService, $scope, $window){
+.controller("CartController", ['productService', 'soldProductsService', '$scope', '$window', function(productService, soldProductsService, $scope, $window){
 
-    this.items = productService.getSoldProducts();
+    this.items = soldProductsService.getSoldProducts();
 
     this.remove = function(index, item) {
         this.items.splice(index, 1);

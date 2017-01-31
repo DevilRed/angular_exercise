@@ -18,11 +18,11 @@ angular.module("shoppingCart")
 		/*this.getOfferedProducts = function (){
 			return products;
 		};*/
-		this.getSoldProducts = function (){
+		/*this.getSoldProducts = function (){
 			// console.log(soldProducts);
 			soldProducts = JSON.parse(localStorage.getItem('sold_products'))
 			return soldProducts;
-		};
+		};*/
 		this.addProduct = function (product){
 			// console.log(product.title);
 			var flag = false;
