@@ -19,6 +19,6 @@ angular.module("shoppingCart")
   	// cleaning data
   	this.quantity = 0;
   	this.selected = {};
-      $window.location.reload();
+      // $window.location.reload();
   };
 }]);

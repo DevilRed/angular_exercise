@@ -35,9 +35,9 @@ button{ margin-left:10px;}
 	border: 2px solid #ccc;
 	float: none;
 }
-input.ng-invalid.ng-dirty{
+/*input.ng-invalid.ng-dirty{
 	border: 2px solid red;
-}
+}*/
 .save-wrapper{
 	text-align: center;
 }
