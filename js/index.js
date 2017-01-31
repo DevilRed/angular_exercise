@@ -25,6 +25,7 @@ angular.module("shoppingCart")
       $event.preventDefault();
       // console.log(items);
       productService.confirmOrder(items);
+      // $window.location.reload();
     };
 }])
 

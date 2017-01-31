@@ -1,6 +1,25 @@
 
+<div class="purchases-wrap">
 <h2>Your Purchases</h2>
-<p>{{ purchasesCtrl.orders }}</p>
 <div class="purchased-order" ng-repeat="order in purchasesCtrl.orders  track by $index">
-	<p>{{ order }}</p>
+	<p><strong>Date of Submission: </strong>{{ order.date }}</p>
+	<p><strong>Total of Purchase: </strong>{{ order.total }}</p>
+	<p class="summary-title"><strong>Product Summary: </strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in order.sold_products">
+				<td>{{ product.title }}</td>
+				<td>{{ product.quantity }}</td>
+				<td>{{ product.price }}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
+</div><!-- purchases-wrap -->

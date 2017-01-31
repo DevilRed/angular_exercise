@@ -5,10 +5,33 @@ span:first-child {width:100px; margin-left:20px; display:inline-block; font-fami
 
 span:nth-child(3) {color: blue; min-width:70px; display:inline-block; width:auto; }
 
-span:nth-child(4) {font-family: 'Trebuchet MS'; 
+span:nth-child(4) {font-family: 'Trebuchet MS';
 font-weight:bold;
 }
 
 button{ margin-left:10px;}
 
 .your-purchases{ clear: both; }
+
+.purchased-order {
+	border: 2px solid #ccc;
+	margin-top: 30px;
+}
+.purchased-order .summary-title{
+	display: inline-block;
+}
+.purchased-order table{
+	display: inline-block;
+	border: 1px solid black;
+}
+.purchased-order table, .purchased-order th, .purchased-order td {
+   border: 1px solid black;
+}
+.purchases-wrap {
+	margin-top: 30px;
+}
+
+.cart{
+	border: 2px solid #ccc;
+	float: none;
+}
