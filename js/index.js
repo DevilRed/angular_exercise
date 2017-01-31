@@ -20,6 +20,7 @@ angular.module("shoppingCart")
         	purchasedItems.splice(toDelete,1);
         	localStorage.setItem('sold_products', JSON.stringify(purchasedItems));
         }
+        console.log(this.items.length);
     };
     this.confirmOrder = function($event, items){
       $event.preventDefault();

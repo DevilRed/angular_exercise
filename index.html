@@ -54,7 +54,7 @@
         </table>
         <div class="confirm"><button ng-click="cartList.confirmOrder($event, cartList.items)">Confirm</button></div>
     </div><!-- .cart -->
-    <p ng-show="!cartList.items.length">There are no items in your shopping cart</p>
+    <p ng-hide="{{ cartList.items.length }}">There are no items in your shopping cart</p>
     </div><!-- .shopping-wrapper -->
     <div class="your-purchases">
         <your-purchases></your-purchases>
