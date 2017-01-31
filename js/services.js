@@ -27,7 +27,7 @@ angular.module("shoppingCart")
 			// console.log(product.title);
 			var flag = false;
 			var toEdit;
-			order.date = Date.now();
+			order.date = getCurrentDate();
 			order.total = 0;
 			angular.forEach(soldProducts, function (val, key){
 				if(val.title === product.title) {
@@ -55,16 +55,34 @@ angular.module("shoppingCart")
 			});
 			order.sold_products = soldProducts;
 			console.log(order);
+			localStorage.setItem('current_order', JSON.stringify(order))
 		};
 		this.confirmOrder = function(items){
 			var oldItems = JSON.parse(localStorage.getItem('confirmed_orders')) || [];
+			order = JSON.parse(localStorage.getItem('current_order'));
 			console.log(order);
-			// oldItems.push(order);
+			oldItems.push(order);
+			console.log(oldItems);
 
-			// localStorage.removeItem('confirmed_orders');
-			localStorage.setItem('confirmed_orders', JSON.stringify(oldItems));
-			localStorage.removeItem('sold_products');
-			soldProducts = [];
+			// localStorage.setItem('confirmed_orders', JSON.stringify(oldItems));
+			// localStorage.removeItem('sold_products');
+			// soldProducts = [];
 		};
+
+		function getCurrentDate (){
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0!
+
+			var yyyy = today.getFullYear();
+			if(dd<10){
+			    dd='0'+dd;
+			}
+			if(mm<10){
+			    mm='0'+mm;
+			}
+			var today = dd+'/'+mm+'/'+yyyy;
+			return today;
+		}
 	}])
 	;
