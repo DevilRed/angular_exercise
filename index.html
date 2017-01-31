@@ -32,13 +32,6 @@
     <div class="shopping-wrapper">
     <h2>Your Shopping Cart</h2>
     <div ng-controller='CartController as cartList' class='cart' ng-show="cartList.items.length">
-        <!-- <div ng-repeat='item in cartList.items'>
-            <span>{{item.title}}</span>
-            <input ng-model='item.quantity'>
-            <span>{{item.price | currency}}</span>
-            <span>{{item.price * item.quantity | currency}}</span>
-            <button ng-click="cartList.remove($index)">Remove</button>
-        </div> -->
         <table>
             <thead>
                 <tr>
