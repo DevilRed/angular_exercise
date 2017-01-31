@@ -1,10 +1,10 @@
 'use strict';
 angular.module("shoppingCart")
 
-.controller('addController', ['$localStorage', 'productService', '$window', function ($localStorage, productService, $window){
+.controller('addController', ['$localStorage', 'productService', 'offeredProductsService', '$window', function ($localStorage, productService, offeredProductsService, $window){
 	this.selected = {};
 	this.title = 'Add Products form';
-	this.offeredProducts = productService.getOfferedProducts();
+	this.offeredProducts = offeredProductsService.getOfferedProducts();
 	this.product = {};
 	this.quantity = 0;
 

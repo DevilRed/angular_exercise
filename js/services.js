@@ -1,23 +1,23 @@
 angular.module("shoppingCart")
-	.service('productService', ['$localStorage', function ($localStorage){
-		var products = [
+	.service('productService', ['products', 'soldProducts', 'order', function (products, soldProducts, order){
+		/*var products = [
 			{title: 'TV', stock: 10, price: 500},
 			{title: 'Radio', stock: 10, price: 80},
 			{title: 'Microwave', stock: 10, price: 150},
 			{title: 'ChromeCast', stock: 10, price: 70},
-		];
-		var soldProducts = [
+		];*/
+		/*var soldProducts = [
 				{title: 'TV', quantity: 1, price: 500},
 				{title: 'Radio', quantity: 1, price: 80}
-			];
-		var soldProducts = (localStorage.getItem('sold_products')!==null) ? JSON.parse(localStorage.getItem('sold_products')) : [
+			];*/
+		/*var soldProducts = (localStorage.getItem('sold_products')!==null) ? JSON.parse(localStorage.getItem('sold_products')) : [
 				{title: 'TV', quantity: 1, price: 500},
 				{title: 'Radio', quantity: 1, price: 80}
-			];
-		var order = {};
-		this.getOfferedProducts = function (){
+			];*/
+		// var order = {};
+		/*this.getOfferedProducts = function (){
 			return products;
-		};
+		};*/
 		this.getSoldProducts = function (){
 			// console.log(soldProducts);
 			soldProducts = JSON.parse(localStorage.getItem('sold_products'))
