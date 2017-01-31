@@ -27,7 +27,7 @@ button{ margin-left:10px;}
 .purchased-order table, .purchased-order th, .purchased-order td {
    border: 1px solid black;
 }
-.purchases-wrap {
+.purchases-wrapper {
 	margin-top: 30px;
 }
 

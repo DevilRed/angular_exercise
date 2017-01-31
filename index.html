@@ -29,8 +29,9 @@
         </form>
     </div>
     <!-- your shopping cart list -->
+    <div class="shopping-wrapper">
     <h2>Your Shopping Cart</h2>
-    <div ng-controller='CartController as cartList' class='cart' >
+    <div ng-controller='CartController as cartList' class='cart' ng-show="cartList.items.length">
         <!-- <div ng-repeat='item in cartList.items'>
             <span>{{item.title}}</span>
             <input ng-model='item.quantity'>
@@ -59,7 +60,9 @@
             </tbody>
         </table>
         <div class="confirm"><button ng-click="cartList.confirmOrder($event, cartList.items)">Confirm</button></div>
-    </div>
+    </div><!-- .cart -->
+    <p ng-show="!cartList.items.length">There are no items in your shopping cart</p>
+    </div><!-- .shopping-wrapper -->
     <div class="your-purchases">
         <your-purchases></your-purchases>
     </div>
