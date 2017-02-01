@@ -23,26 +23,7 @@
 
 <body ng-app='shoppingCart'>
     <!-- add products -->
-    <div class="add-wrapper row" ng-controller="addController as addCtrl">
-        <h2>{{ addCtrl.title }}</h2>
-        <form action="#" name="addCtrl.productAddForm" ng-submit="addCtrl.productAddForm.$valid && addCtrl.save($event)" novalidate="novalidate">
-            <fieldset>
-                <div class="form-group">
-                    <label for="product">Select a Product:</label>
-                    <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" required>
-                    </select>
-                    <span class="product-price">Price: {{ addCtrl.selected.price | currency}}</span>
-                    <div class="form-group">
-                        <label for="quantity" class="control-label">Quantity:</label>
-                        <input type="number" step="1" step-err-type="onlyNumber" title="Numbers only" name="quantity" id="quantity" min="1" ng-maxlength="5" ng-model="addCtrl.quantity" class="form-control" autocomplete="off" required>
-                    </div>
-                    <div class="large-4 large-centered save-wrapper">
-                        <button type="submit"  class="button">Add</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
-    </div>
+    <div ng-include="'partials/add-product.html'"></div>
     <!-- your shopping cart list -->
     <div class="shopping-wrapper row">
     <h2>YOUR SHOPPING CART</h2>
