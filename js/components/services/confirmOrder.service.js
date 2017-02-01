@@ -1,10 +1,11 @@
 'use strict';
 angular.module("shoppingCart")
-	.service('confirmOrderService', ['products', 'soldProducts', 'order', function (products, soldProducts, order){
+	.service('confirmOrderService', ['products', 'soldProducts', 'order', '$localStorage', function (products, soldProducts, order, $localStorage){
 		this.confirmOrder = function(items){
 			var oldItems = JSON.parse(localStorage.getItem('confirmed_orders')) || [];
 			// console.log(oldItems);
-			order = JSON.parse(localStorage.getItem('current_order'));
+			order = $localStorage.current_order;
+			console.log($localStorage.current_order);
 			order.date = getCurrentDate();
 			// console.log(order);
 			oldItems.push(order);
@@ -13,7 +14,7 @@ angular.module("shoppingCart")
 			// localStorage.removeItem('confirmed_orders');
 			localStorage.setItem('confirmed_orders', JSON.stringify(oldItems));
 			localStorage.removeItem('sold_products');
-			soldProducts = [];
+			$localStorage.sold_products = [];
 		};
 
 		function getCurrentDate (){

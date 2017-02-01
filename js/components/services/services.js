@@ -29,7 +29,7 @@ angular.module("shoppingCart")
 			angular.forEach($localStorage.sold_products, function(val, key){
 				order.total += (val.price * val.quantity);
 			});
-			order.sold_products = soldProducts;
+			// order.sold_products = soldProducts;
 			console.log(order);
 			$localStorage.current_order = order;
 		};
@@ -37,7 +37,7 @@ angular.module("shoppingCart")
 		function getCurrentDate (){
 			var today = new Date();
 			var dd = today.getDate();
-			var mm = today.getMonth()+1; //January is 0!
+			var mm = today.getMonth()+1;
 
 			var yyyy = today.getFullYear();
 			if(dd<10){

@@ -44,3 +44,6 @@ button{ margin-left:10px;}
 .save-wrapper button{
 	min-width: 100px;
 }
+.error-msg span:nth-child(3){
+	color: red;
+}

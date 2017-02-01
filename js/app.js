@@ -1,4 +1,4 @@
-var app = angular.module('shoppingCart', ['ngStorage']);
+var app = angular.module('shoppingCart', ['ngStorage', 'jcs-autoValidate']);
 
 
 app.value('products', [
