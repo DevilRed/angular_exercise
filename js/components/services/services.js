@@ -14,10 +14,17 @@ angular.module("shoppingCart")
 				}
 			});
 			if(flag === false ){
-				if(soldProducts === null){
+				if(soldProducts === null || typeof soldProducts === 'undefined'){
 					soldProducts = [];
 				}
-				$localStorage.sold_products.push(product);
+				/*console.log($localStorage.sold_products);
+				if(typeof $localStorage.sold_products === 'undefined'){
+					 $localStorage.sold_products = [];
+				}*/
+				soldProducts.push(product);
+				console.log(soldProducts);
+				// $localStorage.sold_products.push(product);
+				$localStorage.sold_products = soldProducts;
 				flag = true;
 				$localStorage.sold_products = soldProducts;
 			} else{
