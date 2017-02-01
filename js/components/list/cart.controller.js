@@ -1,7 +1,7 @@
 'use strict';
 angular.module("shoppingCart")
 
-.controller("CartController", ['productService', 'soldProductsService', 'confirmOrderService', 'cartTotalService', '$scope', '$window', function(productService, soldProductsService,confirmOrderService, cartTotalService, $scope, $window){
+.controller("CartController", ['productService', 'soldProductsService', 'confirmOrderService', 'cartTotalService', '$scope', '$window', '$localStorage', function(productService, soldProductsService,confirmOrderService, cartTotalService, $scope, $window, $localStorage){
 
     this.items = soldProductsService.getSoldProducts();
     this.cart_total = cartTotalService.getCartTotal(this.items);
@@ -12,7 +12,8 @@ angular.module("shoppingCart")
     this.remove = function(index, item) {
         this.items.splice(index, 1);
         this.cart_total = cartTotalService.getCartTotal(this.items);
-        var purchasedItems = JSON.parse(localStorage.getItem('sold_products'));
+        var purchasedItems = $localStorage.sold_products;
+        $localStorage.current_order.sold_products = purchasedItems;
         var toDelete = -1;
         angular.forEach(purchasedItems, function (val, key){
         	if(val.title === item.title){
