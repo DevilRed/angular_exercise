@@ -30,7 +30,7 @@
                     <label for="product">Select a Product:</label>
                     <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" required>
                     </select>
-                    <span>Price: {{ addCtrl.selected.price }}</span>
+                    <span class="product-price">Price: {{ addCtrl.selected.price }}</span>
                     <div class="form-group">
                         <label for="quantity" class="control-label">Quantity:</label>
                         <input type="number" name="quantity" id="quantity" ng-minlength="1" ng-maxlength="5" ng-model="addCtrl.quantity" class="form-control" required>

@@ -3,7 +3,7 @@
 
 span:first-child {width:100px; margin-left:20px; display:inline-block; font-family: 'Trebuchet MS'; font-size:15px; }
 
-span:nth-child(3) {color: blue; min-width:70px; display:inline-block; width:auto; }
+span.has-error {color: red; min-width:70px; display:inline-block; width:auto; }
 
 span:nth-child(4) {font-family: 'Trebuchet MS';
 font-weight:bold;
@@ -46,4 +46,7 @@ button{ margin-left:10px;}
 }
 .error-msg span:nth-child(3){
 	color: red;
+}
+div.confirm{
+	text-align: center;
 }
