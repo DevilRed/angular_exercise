@@ -24,7 +24,7 @@
     <!-- add products -->
     <div class="add-wrapper row" ng-controller="addController as addCtrl">
         <h2>{{ addCtrl.title }}</h2>
-        <form action="#" name="productAddForm" ng-submit="productAddForm.$valid && addCtrl.save($event)" novalidate="novalidate">
+        <form action="#" name="addCtrl.productAddForm" ng-submit="addCtrl.productAddForm.$valid && addCtrl.save($event)" novalidate="novalidate">
             <fieldset>
                 <div class="form-group">
                     <label for="product">Select a Product:</label>
