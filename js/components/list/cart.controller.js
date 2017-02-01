@@ -11,11 +11,10 @@ angular.module("shoppingCart")
 
     this.remove = function(index, item) {
         this.items.splice(index, 1);
+        this.cart_total = cartTotalService.getCartTotal(this.items);
         var purchasedItems = JSON.parse(localStorage.getItem('sold_products'));
-        // console.log(purchasedItems);
         var toDelete = -1;
         angular.forEach(purchasedItems, function (val, key){
-        	// console.log(val);
         	if(val.title === item.title){
         		toDelete = key;
         	}
@@ -24,11 +23,9 @@ angular.module("shoppingCart")
         	purchasedItems.splice(toDelete,1);
         	localStorage.setItem('sold_products', JSON.stringify(purchasedItems));
         }
-        // $window.location.reload();
     };
     this.confirmOrder = function($event, items){
       $event.preventDefault();
-      // console.log(items);
       confirmOrderService.confirmOrder(items);
       $window.location.reload();
     };
