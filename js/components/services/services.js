@@ -1,12 +1,12 @@
 angular.module("shoppingCart")
-	.service('productService', ['products', 'soldProducts', 'order', function (products, soldProducts, order){
+	.service('productService', ['products', 'soldProducts', 'order', '$localStorage', function (products, soldProducts, order, $localStorage){
 		this.addProduct = function (product){
 			// console.log(product.title);
 			var flag = false;
 			var toEdit;
 			order.date = getCurrentDate();
 			order.total = 0;
-			angular.forEach(soldProducts, function (val, key){
+			angular.forEach($localStorage.sold_products, function (val, key){
 				if(val.title === product.title) {
 					flag = true;
 					toEdit = key;
@@ -16,21 +16,21 @@ angular.module("shoppingCart")
 				if(soldProducts === null){
 					soldProducts = [];
 				}
-				soldProducts.push(product);
+				$localStorage.sold_products.push(product);
 				flag = true;
-				localStorage.setItem('sold_products', JSON.stringify(soldProducts));
+				$localStorage.sold_products = soldProducts;
 			} else{
 				soldProducts[toEdit].quantity = product.quantity;
 				var toEdit;
 				product = {};
 			}
 			// console.log(soldProducts);
-			angular.forEach(soldProducts, function(val, key){
+			angular.forEach($localStorage.sold_products, function(val, key){
 				order.total += (val.price * val.quantity);
 			});
 			order.sold_products = soldProducts;
 			console.log(order);
-			localStorage.setItem('current_order', JSON.stringify(order))
+			$localStorage.current_order = order;
 		};
 
 		function getCurrentDate (){
