@@ -1,9 +1,10 @@
 'use strict';
 angular.module("shoppingCart")
 
-.controller("CartController", ['productService', 'soldProductsService', 'confirmOrderService', '$scope', '$window', function(productService, soldProductsService,confirmOrderService, $scope, $window){
+.controller("CartController", ['productService', 'soldProductsService', 'confirmOrderService', 'cartTotalService', '$scope', '$window', function(productService, soldProductsService,confirmOrderService, cartTotalService, $scope, $window){
 
     this.items = soldProductsService.getSoldProducts();
+    this.cart_total = cartTotalService.getCartTotal(this.items);
     function getValue(){
         return soldProductsService.getSoldProducts();
     };

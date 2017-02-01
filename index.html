@@ -12,6 +12,7 @@
     <script src="js/components/services/offeredProduct.service.js"></script>
     <script src="js/components/services/soldProducts.service.js"></script>
     <script src="js/components/services/confirmOrder.service.js"></script>
+    <script src="js/components/services/cartTotal.service.js"></script>
     <script src="js/directives.js"></script>
     <script src="js/index.js"></script>
     <script src="js/components/list/cart.controller.js"></script>
@@ -63,6 +64,12 @@
                     <td>{{ item.price }}</td>
                     <td>{{ item.price * item.quantity | currency }}</td>
                     <td><button ng-click="cartList.remove($index, item)" class="button alert">Remove</button></td>
+                </tr>
+                <tr>
+                    <td><strong>Cart total</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{ cartList.cart_total | currency}}</td>
                 </tr>
             </tbody>
         </table>
