@@ -5,7 +5,12 @@ angular.module("shoppingCart")
 
     this.items = soldProductsService.getSoldProducts();
     this.cart_total = cartTotalService.getCartTotal(this.items);
-
+    /**
+     * @function remove
+     * @author  Christian Quispe Rojas
+     * @param  item, index
+     * @desc method to remove item from "YOUR SHOPPING CART" list and update the current order according
+     */
     this.remove = function(index, item) {
         this.items.splice(index, 1);
         this.cart_total = cartTotalService.getCartTotal(this.items);

@@ -4,7 +4,6 @@ angular.module("shoppingCart")
 		this.confirmOrder = function(items){
 			var oldItems = $localStorage.confirmed_orders || [];
 			order = $localStorage.current_order;
-			// order.date = getCurrentDate();
 			order.date = utilitiesService.getCurrentDate();
 			oldItems.push(order);
 

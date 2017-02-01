@@ -1,5 +1,11 @@
 angular.module("shoppingCart")
 	.service('productService', ['products', 'soldProducts', 'order', '$localStorage', 'utilitiesService', function (products, soldProducts, order, $localStorage, utilitiesService){
+		/**
+     * @function addProduct
+     * @author  Christian Quispe Rojas
+     * @param  product
+     * @desc service for creating a current order object
+     */
 		this.addProduct = function (product){
 			var flag = false;
 			var toEdit;

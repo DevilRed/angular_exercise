@@ -6,15 +6,8 @@ angular.module("shoppingCart")
 	      templateUrl: 'partials/purchases.html',
 	      controller: function(){
 	      	var localOrders = $localStorage.confirmed_orders;
-	      	// console.log(localOrders);
 	      	angular.forEach(localOrders, function(val, key){
-	      		// console.log(val);
 	      		localOrders.total = 0;
-	      		// console.log(localOrders);
-	      		angular.forEach(val, function(val, key){
-	      			// console.log(val)
-	      			// val.total += val.price;
-	      		});
 	      	});
 	      	this.orders = localOrders;
 	      },
