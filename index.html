@@ -7,6 +7,7 @@
     <script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/components/services/utilities.service.js"></script>
     <script src="js/components/services/services.js"></script>
     <script src="js/components/services/offeredProduct.service.js"></script>
     <script src="js/components/services/soldProducts.service.js"></script>
@@ -33,7 +34,7 @@
                     <span class="product-price">Price: {{ addCtrl.selected.price | currency}}</span>
                     <div class="form-group">
                         <label for="quantity" class="control-label">Quantity:</label>
-                        <input type="number" step="1" step-err-type="onlyNumber" title="Numbers only" name="quantity" id="quantity" min="1" ng-maxlength="5" ng-model="addCtrl.quantity" class="form-control" required>
+                        <input type="number" step="1" step-err-type="onlyNumber" title="Numbers only" name="quantity" id="quantity" min="1" ng-maxlength="5" ng-model="addCtrl.quantity" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="large-4 large-centered save-wrapper">
                         <button type="submit"  class="button">Add</button>

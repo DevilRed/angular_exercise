@@ -1,9 +1,9 @@
 angular.module("shoppingCart")
-	.service('productService', ['products', 'soldProducts', 'order', '$localStorage', function (products, soldProducts, order, $localStorage){
+	.service('productService', ['products', 'soldProducts', 'order', '$localStorage', 'utilitiesService', function (products, soldProducts, order, $localStorage, utilitiesService){
 		this.addProduct = function (product){
 			var flag = false;
 			var toEdit;
-			order.date = getCurrentDate();
+			order.date = utilitiesService.getCurrentDate();
 			order.total = 0;
 			var soldProducts = $localStorage.sold_products;
 			angular.forEach($localStorage.sold_products, function (val, key){
@@ -31,21 +31,5 @@ angular.module("shoppingCart")
 			order.sold_products = soldProducts;
 			$localStorage.current_order = order;
 		};
-
-		function getCurrentDate (){
-			var today = new Date();
-			var dd = today.getDate();
-			var mm = today.getMonth()+1;
-
-			var yyyy = today.getFullYear();
-			if(dd<10){
-			    dd='0'+dd;
-			}
-			if(mm<10){
-			    mm='0'+mm;
-			}
-			var today = dd+'/'+mm+'/'+yyyy;
-			return today;
-		}
 	}])
 	;
