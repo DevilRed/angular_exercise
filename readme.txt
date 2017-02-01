@@ -39,3 +39,11 @@ Requirements
 "YOUR PURCHASES" list.
 1. Create a directtive/component to display  in a list the submitted orders (READ ONLY view).
 2. The submitted orders should only displays: date of submission, Total of purchase, brief summary of purchased items.
+
+
+Solution
+============
+
+- Se resolvieron los puntos solicitados de acuerdo a los requerimientos.
+
+- Se usaron partials para las secciones de ADD PRODUCTS, YOUR SHOPPING CART para demostrar 2 formas de incluir parciales de HTML.
