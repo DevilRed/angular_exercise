@@ -22,7 +22,7 @@ angular.module("shoppingCart")
 					 $localStorage.sold_products = [];
 				}*/
 				soldProducts.push(product);
-				console.log(soldProducts);
+				// console.log(soldProducts);
 				// $localStorage.sold_products.push(product);
 				$localStorage.sold_products = soldProducts;
 				flag = true;
@@ -36,8 +36,9 @@ angular.module("shoppingCart")
 			angular.forEach($localStorage.sold_products, function(val, key){
 				order.total += (val.price * val.quantity);
 			});
-			// order.sold_products = soldProducts;
-			console.log(order);
+			// console.log(soldProducts);
+			order.sold_products = soldProducts;
+			// console.log(order);
 			$localStorage.current_order = order;
 		};
 
