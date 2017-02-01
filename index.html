@@ -31,7 +31,7 @@
                     <label for="product">Select a Product:</label>
                     <select ng-model="addCtrl.selected" ng-options="product.title for product in addCtrl.offeredProducts" required>
                     </select>
-                    <span class="product-price">Price: {{ addCtrl.selected.price }}</span>
+                    <span class="product-price">Price: {{ addCtrl.selected.price | currency}}</span>
                     <div class="form-group">
                         <label for="quantity" class="control-label">Quantity:</label>
                         <input type="number" name="quantity" id="quantity" min="1" ng-maxlength="5" ng-model="addCtrl.quantity" class="form-control" required>
@@ -61,12 +61,13 @@
                 <tr ng-repeat="item in cartList.items track by $index">
                     <td>{{ item.title }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td>{{ item.price }}</td>
+                    <td>{{ item.price | currency}}</td>
                     <td>{{ item.price * item.quantity | currency }}</td>
                     <td><button ng-click="cartList.remove($index, item)" class="button alert">Remove</button></td>
                 </tr>
                 <tr>
                     <td><strong>Cart total</strong></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>{{ cartList.cart_total | currency}}</td>
