@@ -46,3 +46,6 @@ button{ margin-left:10px;}
 div.confirm{
 	text-align: center;
 }
+.shopping-wrapper{
+	min-height: 250px;
+}
