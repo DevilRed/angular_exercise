@@ -3,13 +3,9 @@ angular.module("shoppingCart")
 	.service('confirmOrderService', ['products', 'soldProducts', 'order', '$localStorage', function (products, soldProducts, order, $localStorage){
 		this.confirmOrder = function(items){
 			var oldItems = $localStorage.confirmed_orders || [];
-			// console.log(oldItems);
 			order = $localStorage.current_order;
-			// console.log($localStorage.current_order);
 			order.date = getCurrentDate();
-			// console.log(order);
 			oldItems.push(order);
-			// console.log(oldItems);
 
 			$localStorage.confirmed_orders =oldItems;
 			localStorage.removeItem('sold_products');
@@ -19,7 +15,7 @@ angular.module("shoppingCart")
 		function getCurrentDate (){
 			var today = new Date();
 			var dd = today.getDate();
-			var mm = today.getMonth()+1; //January is 0!
+			var mm = today.getMonth()+1;
 
 			var yyyy = today.getFullYear();
 			if(dd<10){

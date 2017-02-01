@@ -1,7 +1,6 @@
 angular.module("shoppingCart")
 	.service('productService', ['products', 'soldProducts', 'order', '$localStorage', function (products, soldProducts, order, $localStorage){
 		this.addProduct = function (product){
-			// console.log(product.title);
 			var flag = false;
 			var toEdit;
 			order.date = getCurrentDate();
@@ -17,13 +16,7 @@ angular.module("shoppingCart")
 				if(soldProducts === null || typeof soldProducts === 'undefined'){
 					soldProducts = [];
 				}
-				/*console.log($localStorage.sold_products);
-				if(typeof $localStorage.sold_products === 'undefined'){
-					 $localStorage.sold_products = [];
-				}*/
 				soldProducts.push(product);
-				// console.log(soldProducts);
-				// $localStorage.sold_products.push(product);
 				$localStorage.sold_products = soldProducts;
 				flag = true;
 				$localStorage.sold_products = soldProducts;
@@ -32,13 +25,10 @@ angular.module("shoppingCart")
 				var toEdit;
 				product = {};
 			}
-			// console.log(soldProducts);
 			angular.forEach($localStorage.sold_products, function(val, key){
 				order.total += (val.price * val.quantity);
 			});
-			// console.log(soldProducts);
 			order.sold_products = soldProducts;
-			// console.log(order);
 			$localStorage.current_order = order;
 		};
 
