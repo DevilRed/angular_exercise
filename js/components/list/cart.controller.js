@@ -5,9 +5,6 @@ angular.module("shoppingCart")
 
     this.items = soldProductsService.getSoldProducts();
     this.cart_total = cartTotalService.getCartTotal(this.items);
-    function getValue(){
-        return soldProductsService.getSoldProducts();
-    };
 
     this.remove = function(index, item) {
         this.items.splice(index, 1);
