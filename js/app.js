@@ -16,3 +16,15 @@ app.value('soldProducts', (localStorage.getItem('sold_products')!==null) ? JSON.
 				// {title: 'Radio', quantity: 1, price: 80}
 			]);
 app.value('order', {});
+
+
+
+angular.module('jcs-autoValidate')
+    .run([
+    'defaultErrorMessageResolver',
+    function (defaultErrorMessageResolver) {
+        defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
+          errorMessages['onlyNumber'] = 'Please use only integers';
+        });
+    }
+]);

@@ -34,7 +34,7 @@
                     <span class="product-price">Price: {{ addCtrl.selected.price | currency}}</span>
                     <div class="form-group">
                         <label for="quantity" class="control-label">Quantity:</label>
-                        <input type="number" name="quantity" id="quantity" min="1" ng-maxlength="5" ng-model="addCtrl.quantity" class="form-control" required>
+                        <input type="number" step="1" step-err-type="onlyNumber" title="Numbers only" name="quantity" id="quantity" min="1" ng-maxlength="5" ng-model="addCtrl.quantity" class="form-control" required>
                     </div>
                     <div class="large-4 large-centered save-wrapper">
                         <button type="submit"  class="button">Add</button>
