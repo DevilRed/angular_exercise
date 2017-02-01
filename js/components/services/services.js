@@ -6,6 +6,7 @@ angular.module("shoppingCart")
 			var toEdit;
 			order.date = getCurrentDate();
 			order.total = 0;
+			var soldProducts = $localStorage.sold_products;
 			angular.forEach($localStorage.sold_products, function (val, key){
 				if(val.title === product.title) {
 					flag = true;

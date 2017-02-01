@@ -18,7 +18,7 @@ angular.module("shoppingCart")
   	productService.addProduct(this.product);
   	// cleaning data
   	this.quantity = 0;
-  	this.selected = {};
+  	this.initialValue = this.offeredProducts[0].title;
       // $window.location.reload();
   };
 }]);

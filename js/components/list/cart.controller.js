@@ -7,9 +7,9 @@ angular.module("shoppingCart")
     function getValue(){
         return soldProductsService.getSoldProducts();
     };
-    $scope.$watch(getValue, function (newValue){
+    /*$scope.$watch(getValue, function (newValue){
         console.log(newValue);
-    });
+    });*/
 
     this.remove = function(index, item) {
         this.items.splice(index, 1);
