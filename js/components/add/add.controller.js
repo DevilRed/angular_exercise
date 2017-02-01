@@ -6,7 +6,7 @@ angular.module("shoppingCart")
 	this.title = 'ADD PRODUCTS';
 	this.offeredProducts = offeredProductsService.getOfferedProducts();
 	this.product = {};
-	this.quantity = 0;
+	this.quantity = 1;
   this.initialValue = this.offeredProducts[0].title;
   this.selected = this.offeredProducts[0];
 
@@ -17,7 +17,7 @@ angular.module("shoppingCart")
   	this.product.price = this.quantity * this.selected.price;
   	productService.addProduct(this.product);
   	// cleaning data
-  	this.quantity = 0;
+  	this.quantity = 1;
   	this.initialValue = this.offeredProducts[0].title;
       // $window.location.reload();
   };
