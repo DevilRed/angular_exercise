@@ -21,7 +21,6 @@ button{ margin-left:10px;}
 	display: inline-block;
 }
 .purchased-order table{
-	/*display: inline-block;*/
 	border: 1px solid black;
 }
 .purchased-order table, .purchased-order th, .purchased-order td {
@@ -35,9 +34,6 @@ button{ margin-left:10px;}
 	border: 2px solid #ccc;
 	float: none;
 }
-/*input.ng-invalid.ng-dirty{
-	border: 2px solid red;
-}*/
 .save-wrapper{
 	text-align: center;
 }
