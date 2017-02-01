@@ -1,5 +1,9 @@
 var app = angular.module('shoppingCart', ['ngStorage', 'jcs-autoValidate']);
 
+app.config(['$localStorageProvider',
+    function ($localStorageProvider) {
+        $localStorageProvider.set('sold_products', []);
+    }]);
 
 app.value('products', [
 	{title: 'TV', stock: 10, price: 500},

@@ -2,17 +2,16 @@
 angular.module("shoppingCart")
 	.service('confirmOrderService', ['products', 'soldProducts', 'order', '$localStorage', function (products, soldProducts, order, $localStorage){
 		this.confirmOrder = function(items){
-			var oldItems = JSON.parse(localStorage.getItem('confirmed_orders')) || [];
+			var oldItems = $localStorage.confirmed_orders || [];
 			// console.log(oldItems);
 			order = $localStorage.current_order;
-			console.log($localStorage.current_order);
+			// console.log($localStorage.current_order);
 			order.date = getCurrentDate();
 			// console.log(order);
 			oldItems.push(order);
 			// console.log(oldItems);
 
-			// localStorage.removeItem('confirmed_orders');
-			localStorage.setItem('confirmed_orders', JSON.stringify(oldItems));
+			$localStorage.confirmed_orders =oldItems;
 			localStorage.removeItem('sold_products');
 			$localStorage.sold_products = [];
 		};
